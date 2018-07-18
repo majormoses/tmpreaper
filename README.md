@@ -1,8 +1,10 @@
-[![Build Status](https://secure.travis-ci.org/customink-webops/chef-tmpreaper.png?branch=0.1.1)](http://travis-ci.org/customink-webops/chef-tmpreaper)
+[![Build Status](https://secure.travis-ci.org/majormoses/tmpreaper.png)](http://travis-ci.org/majormoses/tmpreaper)
 
 Description
 ===========
-This cookbook install tmpreaper and the associated configuration file for Ubuntu.
+This cookbook install `tmpreaper` and the associated configuration file for Ubuntu.
+
+This cookbook is a forked version of https://github.com/customink-webops/tmpreaper as it was no longer being maintained I picked it up and am renaming it to `tmpreaper2` to avoid supermarket namespace collision and when its in a good state will be pushed to the supermarket.
 
 Requirements
 ============
@@ -22,7 +24,7 @@ Attributes
 * `default['tmpreaper']['dirs']` - directory or directories to clean
 * `default['tmpreaper']['delay']` - maximum delay before starting processing
 * `default['tmpreaper']['additional_options']` - additional options for tmpreaper
-* `default['tmpreaper']['tmptime']` - how old are files to delete (e.g.`1d`)
+* `default['tmpreaper']['tmptime']` - how old are files to delete (e.g.`'1d'`)
 
 ## cron
 * `default['tmpreaper']['cron']['hour']` = hour to run the cron task
@@ -35,10 +37,10 @@ To install just tmpreaper (and run the cleaning command yourself):
 
     tmpreaper
 
-To install tmpreaper and a cronjob:
+To install `tmpreaper` and a an entry in `crontab`:
 
-    tmpreaper
-    tmpreaper::schedule
+    `tmpreaper2`
+    `tmpreaper2::schedule`
 
 License and Authors
 ===================
@@ -46,6 +48,10 @@ License and Authors
 Author:: Seth Vargo <svargo@customink.com>
 
 Copyright:: 2012, CustomInk, LLC.
+
+Author:: Ben Abrams <me@benabrams.it>
+
+Copyright:: 2018, Ben Abrams
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

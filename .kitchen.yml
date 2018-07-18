@@ -1,0 +1,68 @@
+---
+driver:
+  name: dokken
+  chef_version: 13.8.13
+  # needed if you are running systemd in docker
+  privileged: true
+
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
+  # nodes_path: test/fixtures/nodes
+  # roles_path: test/fixtures/roles
+  # environments_path: test/fixtures/environments
+  # client_rb:
+  #   environment: kitchen
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-14.04
+    named_run_list: debian
+    driver:
+      image: ubuntu-upstart:14.04
+      pid_one_command: /sbin/init
+      intermediate_instructions:
+        - RUN apt-get -y update && apt-get install -y net-tools curl cron
+    attributes:
+  - name: ubuntu-1604
+    named_run_list: debian
+    driver:
+      image: ubuntu:16.04
+      privileged: true
+      pid_one_command: /bin/systemd
+      intermediate_instructions: # any tasks before runlist is evaluated and run
+      - RUN apt-get -y update && apt-get install -y net-tools curl cron
+      - ENV container docker
+      - CMD ['/usr/sbin/init']
+  - name: ubuntu-1804
+    named_run_list: debian
+    driver:
+      image: dokken/ubuntu-18.04
+      privileged: true
+      pid_one_command: /bin/systemd
+      intermediate_instructions: # any tasks before runlist is evaluated and run
+      - RUN apt-get -y update && apt-get install -y net-tools curl cron
+      - ENV container docker
+      - CMD ['/usr/sbin/init']
+      attributes:
+suites:
+  - name: noschedule
+    run_list:
+      - recipe[tmpreaper2]
+    attributes:
+      tmpreaper:
+        tmptime: 3d
+  - name: schedule
+    run_list:
+      - recipe[tmpreaper2]
+      - recipe[tmpreaper2::schedule]
+    attributes:
+      tmpreaper:
+        cron:
+          hour: 12
+          minute: 00
+        tmptime: 3d
