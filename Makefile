@@ -26,6 +26,8 @@ rubofix: ## run cookstyle and attempt to auto correct
 	bundle exec cookstyle --display-cop-names --extra-details --display-style-guide --auto-correct
 
 travis: rubotest foodtest gemdeps ## run all tets that should be run in travis
+	# if INSTANCE ENV var is not specified it should test all of them
+	bundle exec kitchen test ${INSTANCE}
 
 # Do not sort anything below here
 help:
