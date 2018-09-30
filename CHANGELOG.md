@@ -5,6 +5,10 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 
 ## [Unreleased]
 
+## [v0.2.2] - 2018-09-30
+### No-op
+- bump version and try deploying to supermarket from travis again
+
 ## [v0.2.1] - 2018-07-20
 ### No-op
 - bump version
@@ -34,7 +38,8 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 - ruby testing for `< 2.4.3`
 
 
-[Unreleased]: https://github.com/majormoses/tmpreaper/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/majormoses/tmpreaper/compare/v0.2.2...HEAD
+[v0.2.2]: https://github.com/majormoses/tmpreaper/compare/v0.2.1...v0.2.2
 [v0.2.1]: https://github.com/majormoses/tmpreaper/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/majormoses/tmpreaper/compare/v0.1.0...v0.2.0
 [v0.0.1]: https://github.com/majormoses/tmpreaper/compare/21e37f925ca84e390b085fa0dad1a867a518f1f8...v0.0.1

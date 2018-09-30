@@ -15,10 +15,6 @@ env:
     - INSTANCE=schedule-ubuntu-1604
     - INSTANCE=schedule-ubuntu-1804
 
-before_install:
-- mkdir ~/chef
-- openssl aes-256-cbc -K $encrypted_02ba4c0f2d2e_key -iv $encrypted_02ba4c0f2d2e_iv -in .travis/majormoses.pem.enc -out .travis/majormoses.pem -d
-
 before_script:
 - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
 
@@ -30,12 +26,17 @@ cache:
 script:
   - INSTANCE=$INSTANCE make travis
 
+before_deploy:
+- mkdir ~/chef
+- openssl aes-256-cbc -K $encrypted_02ba4c0f2d2e_key -iv $encrypted_02ba4c0f2d2e_iv -in .travis/majormoses.pem.enc -out .travis/majormoses.pem -d
+- rvm $(travis_internal_ruby) --fuzzy do ruby gem install semver2 -v '~> 3.4'
+
 # when we are unblocked by: https://github.com/travis-ci/dpl/issues/841
-# deploy:
-#   edge: true
-#   provider: chef-supermarket
-#   user_id: majormoses
-#   client-key: .travis/majormoses.pem
-#   cookbook_category: Others
-#   on:
-#     tags: true
+deploy:
+  # edge: true
+  provider: chef-supermarket
+  user_id: majormoses
+  client-key: .travis/majormoses.pem
+  cookbook_category: Others
+  on:
+    tags: true
