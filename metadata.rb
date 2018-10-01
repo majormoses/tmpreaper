@@ -13,5 +13,5 @@ supports         'ubuntu'
 
 version SemVer.find.format '%M.%m.%p'
 
-recipe 'tmpreaper', 'Main tmpreaper configuration'
-recipe 'tmpreaper::schedule', 'Adds cron job for tmpreaper'
+recipe 'tmpreaper2', 'Main tmpreaper configuration'
+recipe 'tmpreaper2::schedule', 'Adds cron job for tmpreaper'

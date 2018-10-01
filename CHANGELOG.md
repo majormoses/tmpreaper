@@ -5,6 +5,9 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 
 ## [Unreleased]
 
+## [v0.2.3] - 2018-09-30
+- bump version and try deploying to supermarket from travis again
+
 ## [v0.2.2] - 2018-09-30
 ### No-op
 - bump version and try deploying to supermarket from travis again
