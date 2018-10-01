@@ -38,7 +38,8 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 - ruby testing for `< 2.4.3`
 
 
-[Unreleased]: https://github.com/majormoses/tmpreaper/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/majormoses/tmpreaper/compare/v0.2.3...HEAD
+[v0.2.3]: https://github.com/majormoses/tmpreaper/compare/v0.2.2...v0.2.3
 [v0.2.2]: https://github.com/majormoses/tmpreaper/compare/v0.2.1...v0.2.2
 [v0.2.1]: https://github.com/majormoses/tmpreaper/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/majormoses/tmpreaper/compare/v0.1.0...v0.2.0

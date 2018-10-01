@@ -29,11 +29,11 @@ script:
 before_deploy:
 - mkdir ~/chef
 - openssl aes-256-cbc -K $encrypted_02ba4c0f2d2e_key -iv $encrypted_02ba4c0f2d2e_iv -in .travis/majormoses.pem.enc -out .travis/majormoses.pem -d
-- rvm $(travis_internal_ruby) --fuzzy do ruby gem install semver2 -v '~> 3.4'
+- rvm $(travis_internal_ruby) --fuzzy do gem install semver2 -v '~> 3.4'
 
 # when we are unblocked by: https://github.com/travis-ci/dpl/issues/841
 deploy:
-  # edge: true
+  edge: true
   provider: chef-supermarket
   user_id: majormoses
   client-key: .travis/majormoses.pem
